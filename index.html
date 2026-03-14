@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Portal Multiverso: Notícias geek, imagens, vídeos e surpresas inspiradas em universos como Star Wars, Senhor dos Anéis, Harry Potter e Teen Wolf.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal Multiverso - Notícias Geek</title>
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul class="nav-list">
+                <li><a href="index.html" class="nav-link">Início</a></li>
+                <li><a href="noticia1.html" class="nav-link">Notícia 1</a></li>
+                <li><a href="noticia2.html" class="nav-link">Notícia 2</a></li>
+                <li><a href="contato.html" class="nav-link">Contato</a></li>
+            </ul>
+        </nav>
+        <h1>Portal Multiverso Wolf</h1>
+        <p class="subtitle"> O seu portal para o sobrenatural!</p>
+    </header>
+
+    <main>
+        <section class="carousel" aria-label="Carrossel de Heróis">
+            <div class="carousel-images">
+                <img src="img3/𝐒𝐜𝐨𝐭𝐭 𝐌𝐜𝐂𝐚𝐥𝐥.jpg" alt="Herói Geek 1" />
+                <img src="img3/Stiles Stilinski _ icon _ Teen Wolf.jpg" alt="Herói Geek 2" />
+                <!-- Adicione mais imagens conforme necessário -->
+            </div>
+            <button class="carousel-btn prev" aria-label="Anterior">&#10094;</button>
+            <button class="carousel-btn next" aria-label="Próximo">&#10095;</button>
+        </section>
+
+        <section class="news-list">
+            <article class="news-card">
+                <img src="img3/scott and stiles __ teen wolf.jpg" alt="Imagem da notícia 1" />
+                <h2><a href="noticia1.html">Teen Wolf: O Lobo Alfa Retorna</a></h2>
+                <p>Venha descobrir os mistérios de Beacon Hills, onde Scott McCall e Stiles Stilinski enfrentam novas ameaças e aventuras sobrenaturais!</p>
+            </article>
+            <article class="news-card">
+                <img src="img3/Stiles & Scott.jpg" alt="Imagem da notícia 2" />
+                <h2><a href="noticia2.html">Todas as notícias do universo Teen Wolf</a></h2>
+                <p>Atualizações, teorias e mistérios da alcateia de Teen Wolf, com um toque de neon e referências geek!</p>
+            </article>
+            <!-- Adicione mais notícias conforme necessário -->
+        </section>
+    </main>
+
+    <footer>
+        <div class="easter-egg" tabindex="0" aria-label="Easter Egg">
+            <!-- Referência oculta: clique para revelar -->
+            <span class="egg-hint">🦉</span>
+            <div class="egg-content" hidden>
+                <p>"Que a força esteja com você, jovem lobo de Beacon Hills."</p>
+                <p>"Nunca esqueça seu lenço, e não entre em pânico." - Guia do Mochileiro das Galáxias</p>
+            </div>
+        </div>
+        <p>&copy; 2026 Portal Multiverso. Inspirado por Teen Wolf.</p>
+    </footer>
+
+    <script>
+        // Carrossel simples
+        const images = document.querySelectorAll('.carousel-images img');
+        let current = 0;
+        function showImage(idx) {
+            images.forEach((img, i) => img.style.display = i === idx ? 'block' : 'none');
+        }
+        document.querySelector('.prev').onclick = () => {
+            current = (current - 1 + images.length) % images.length;
+            showImage(current);
+        };
+        document.querySelector('.next').onclick = () => {
+            current = (current + 1) % images.length;
+            showImage(current);
+        };
+        showImage(current);
+
+        // Easter egg reveal
+        document.querySelector('.easter-egg').onclick = function() {
+            const content = this.querySelector('.egg-content');
+            content.hidden = !content.hidden;
+        };
+        document.querySelector('.easter-egg').onkeydown = function(e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+                const content = this.querySelector('.egg-content');
+                content.hidden = !content.hidden;
+            }
+        };
+    </script>
+</body>
+</html>
